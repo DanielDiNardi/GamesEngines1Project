@@ -1,4 +1,4 @@
-# GamesEngines1Project
+# Games Engines 1 Project
 
 ## Description
 For my Games Engines 1 project, I plan on creating an organism that can move, search, and interact with others of its species. The organism will live in a confined space that has everything it needs to live (water, food, and breeding mates). The organism will have a FOV so that it can search for the resources it needs to survive. Each organism will have a necessity bar that will influence its movement.
