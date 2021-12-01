@@ -9,13 +9,19 @@ public class perlin : MonoBehaviour
 
     public float scale = 20f;
 
+    public float offsetX = 100f;
+    public float offsetY = 100f;
+
     void Start(){
-        Debug.Log("Started");
+        offsetX = Random.Range(0f, 9999f);
+        offsetY = Random.Range(0f, 9999f);
         Terrain terrain = GetComponent<Terrain>();
         terrain.terrainData = GenerateTerrain(terrain.terrainData);
     }
 
     TerrainData GenerateTerrain(TerrainData terrainData){
+        terrainData.heightmapResolution = width + 1;
+
         terrainData.size = new Vector3 (width, depth, height);
 
         terrainData.SetHeights(0, 0, GenerateHeights());
@@ -35,8 +41,8 @@ public class perlin : MonoBehaviour
     }
 
     float CalculateHeight(int x, int y){
-        float xCoord = (float)x / width * scale;
-        float yCoord = (float)y / height * scale;
+        float xCoord = (float)x / width * scale + offsetX;
+        float yCoord = (float)y / height * scale + offsetY;
 
         return Mathf.PerlinNoise(xCoord, yCoord);
     }
