@@ -8,7 +8,7 @@ For my Games Engines 1 project, I plan on creating an organism that can move, se
 ## Requirements
 * Organism object.
 * Limited world.
-* Procedural Spawning.
+* Procedural Terrain.
 * Needs list.
 * Randomised lerped movement.
 * Organism FOV.
