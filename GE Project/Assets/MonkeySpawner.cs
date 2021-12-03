@@ -11,7 +11,6 @@ public class MonkeySpawner : MonoBehaviour
 
     void Start(){
 
-        // Debug.Log(transform.position.y is float);
         
         for(int i = 0; i < monkeyPopulation; i++){
             Instantiate(monkey, new Vector3(Random.Range(10f, spawnWidth), transform.position.y, Random.Range(10f, spawnHeight)), transform.rotation);

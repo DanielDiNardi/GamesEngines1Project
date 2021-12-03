@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 190283655}
+  - component: {fileID: 190283656}
   m_Layer: 0
   m_Name: Marten Spawner
   m_TagString: Untagged
@@ -151,6 +152,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190283656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190283654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b6c9c282fac14baabd27a083066ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marten: {fileID: 8253914553390301825, guid: a2753dec8f5e402418283422e67fe678, type: 3}
+  martenPopulation: 10
+  spawnWidth: 246
+  spawnHeight: 246
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 874382917}
+  - component: {fileID: 874382918}
   m_Layer: 0
   m_Name: Tree Spawner
   m_TagString: Untagged
@@ -273,6 +291,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874382918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874382916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83c4c46ea834c5418e28e45212b4db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 3081143843603601912, guid: 7899fd93301f3bc4795e65c5d3a919be, type: 3}
+  treePopulation: 50
+  spawnWidth: 246
+  spawnHeight: 246
 --- !u!1 &911844952
 GameObject:
   m_ObjectHideFlags: 0
