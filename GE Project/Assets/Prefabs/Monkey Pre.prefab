@@ -97,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey Pre
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb61c03b09c635949973f648dd81d417,
+        type: 3}
+      propertyPath: m_TagString
+      value: Monkey
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb61c03b09c635949973f648dd81d417, type: 3}
 --- !u!1 &6129723345519537341 stripped
