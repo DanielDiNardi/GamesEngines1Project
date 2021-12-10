@@ -36,12 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\MartenSpawner.cs" />
-     <Compile Include="Assets\MonkeySpawner.cs" />
-     <Compile Include="Assets\TreeSpawner.cs" />
      <Compile Include="Assets\despawnOnContact.cs" />
      <Compile Include="Assets\dropFruit.cs" />
      <Compile Include="Assets\perlin.cs" />
+     <Compile Include="Assets\spawner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Users/dandi/Documents/GE1/2019.4.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
