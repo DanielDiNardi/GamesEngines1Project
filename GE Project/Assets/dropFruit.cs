@@ -10,10 +10,8 @@ public class dropFruit : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("Here");
-            Instantiate(fig, new Vector3(-1.44f, 4.2f, 0.78f), transform.rotation);
-            fig.transform.parent = transform;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(Random.Range(10, 30));
+            Instantiate(fig, new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + 4, transform.position.z + Random.Range(-2f, 2f)), transform.rotation);
         }
     }
 

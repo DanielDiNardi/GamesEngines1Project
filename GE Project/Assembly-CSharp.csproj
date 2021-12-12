@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\decay.cs" />
      <Compile Include="Assets\despawnOnContact.cs" />
      <Compile Include="Assets\dropFruit.cs" />
      <Compile Include="Assets\perlin.cs" />
