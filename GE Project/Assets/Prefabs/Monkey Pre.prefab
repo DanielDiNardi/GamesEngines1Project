@@ -44,6 +44,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   rotSpeed: 100
+  viewRadius: 9.35
+  viewAngle: 45
+  fruitMask:
+    serializedVersion: 2
+    m_Bits: 256
+  treeMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleFruits: []
 --- !u!114 &8475361614363416834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +65,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf8909eefe90b94382747f7e16ecad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirst: 0
+  hunger: 0
+  reproductionNeed: 0
+  thirstPercent: 0
+  hungerPercent: 0
+  reproductionNeedPercent: 0
+  thirsty: 0
+  hungry: 0
+  cuddly: 0
+  currentThirst: 0
+  currentHunger: 0
+  currentReproductionNeed: 0
 --- !u!1001 &6471759758164578796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,8 +146,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb61c03b09c635949973f648dd81d417,
         type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb61c03b09c635949973f648dd81d417,
+        type: 3}
       propertyPath: m_TagString
       value: Monkey
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: cb61c03b09c635949973f648dd81d417,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb61c03b09c635949973f648dd81d417, type: 3}

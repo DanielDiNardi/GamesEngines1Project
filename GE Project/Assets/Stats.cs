@@ -24,7 +24,7 @@ public class Stats : MonoBehaviour
 
     System.Collections.IEnumerator NeedReduction()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         currentThirst--;
         currentHunger--;
         currentReproductionNeed--;
