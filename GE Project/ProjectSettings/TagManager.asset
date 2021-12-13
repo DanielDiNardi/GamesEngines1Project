@@ -8,6 +8,8 @@ TagManager:
   - Marten
   - Tree
   - Fig
+  - Water
+  - Terrain
   layers:
   - Default
   - TransparentFX

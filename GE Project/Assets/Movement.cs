@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
     private bool isRotatingRight = false;
     private bool isWalking = false;
 
+    RaycastHit hit;
+
     IEnumerator Wander(){
         int rotTime = Random.Range(1, 3);
         int rotateWait = Random.Range(1, 4);
@@ -60,6 +62,13 @@ public class Movement : MonoBehaviour
         }
         if(isWalking == true){
             transform.position -= transform.forward * Time.deltaTime * moveSpeed;
+            if(Physics.Raycast(transform.position - transform.forward, (-transform.forward - transform.up).normalized, out hit)){
+                Debug.DrawRay(transform.position - transform.forward, (-transform.forward - transform.up).normalized , Color.green);
+                // print(hit.collider.gameObject.tag);
+            }
+            else{
+                isWalking = false;
+            }
         }
     }
 }
