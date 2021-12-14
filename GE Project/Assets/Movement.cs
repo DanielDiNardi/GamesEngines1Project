@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     public LayerMask fruitMask;
     public LayerMask treeMask;
 
+    [HideInInspector]
     public List<Transform> visibleFruits = new List<Transform>();
 
     Vector3 closestFruit;
@@ -58,7 +59,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = Random.Range(10f, 10f);
+        moveSpeed = Random.Range(1f, 10f);
     }
 
     // Update is called once per frame
@@ -91,39 +92,45 @@ public class Movement : MonoBehaviour
             else{
                 isWalking = false;
             }
+
         }
         
-        FindVisibleTargets();
+        FindVisibleFruits();
     }
 
-    void FindVisibleTargets(){
-        // visibleFruits.Clear();
-        // Collider[] fruitsInView = Physics.OverlapSphere(transform.position, viewRadius, fruitMask);
+    void FindVisibleFruits(){
+        visibleFruits.Clear();
+        Collider[] fruitsInView = Physics.OverlapSphere(transform.position, viewRadius, fruitMask);
 
-        // for(int i = 0; i < fruitsInView.Length; i++){
-        //     if(closestFruit == null){
-        //         closestFruit = fruitsInView[i].gameObject.transform.position;
-        //     }
-        //     else if((transform.position - fruitsInView[i].gameObject.transform.position).magnitude < (transform.position - closestFruit).magnitude){
-        //         closestFruit = fruitsInView[i].gameObject.transform.position;
-        //     }
-        //     Transform fruit = fruitsInView[i].transform;
-        //     Vector3 dirToFruit = (fruit.position - transform.position).normalized;
+        for(int i = 0; i < fruitsInView.Length; i++){
+            if(closestFruit == null){
+                closestFruit = fruitsInView[i].gameObject.transform.position;
+            }
+            else if((transform.position - fruitsInView[i].gameObject.transform.position).magnitude < (transform.position - closestFruit).magnitude){
+                closestFruit = fruitsInView[i].gameObject.transform.position;
+            }
+            Transform fruit = fruitsInView[i].transform;
+            Vector3 dirToFruit = (fruit.position - transform.position).normalized;
 
-        //     if(Vector3.Angle(transform.forward, dirToFruit) < viewAngle / 2){
-        //         float distToFruit = Vector3.Distance(transform.position, fruit.position);
+            if(Vector3.Angle(transform.forward, dirToFruit) < viewAngle / 2){
+                float distToFruit = Vector3.Distance(transform.position, fruit.position);
 
-        //         if(!Physics.Raycast(transform.position, dirToFruit, distToFruit, treeMask)){
-        //             isWalking = false;
-        //             Debug.Log("I see it");
-        //             Vector3 rot = transform.rotation.eulerAngles;
-        //             rot = new Vector3(rot.x, rot.y, rot.z);
-        //             transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(rot), Quaternion.LookRotation(closestFruit, Vector3.up), rotSpeed * Time.deltaTime);
-        //             transform.position += transform.forward * Time.deltaTime * moveSpeed;
-        //             visibleFruits.Add(fruit);
-        //         }
-        //     }
-        // }
+                if(!Physics.Raycast(transform.position, dirToFruit, distToFruit, treeMask)){
+                    stats = gameObject.GetComponent<Stats>();
+                    if(stats.hungry == true){
+                        isWandering = true;
+                        isRotatingLeft = false;
+                        isRotatingRight = false;
+                        isWalking = false;
+
+                        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(closestFruit - transform.position, Vector3.up), (rotSpeed / 4) * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, closestFruit, moveSpeed * Time.deltaTime);
+                    }
+                    
+                    visibleFruits.Add(fruit);
+                }
+            }
+        }
     }
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal){
@@ -131,5 +138,16 @@ public class Movement : MonoBehaviour
             angleInDegrees += transform.eulerAngles.y;
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "Fig"){
+            stats = gameObject.GetComponent<Stats>();
+            if(stats.hungry == true){
+                stats.currentHunger = stats.hunger;
+                Destroy(collision.gameObject);
+                isWandering = false;
+            }
+        }
     }
 }
