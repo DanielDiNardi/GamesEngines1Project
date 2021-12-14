@@ -14,7 +14,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &36137136
 MeshCollider:
@@ -43,6 +43,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0.25}
+--- !u!114 &-7679689398467532222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129723345519537341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97d7a89da93151488eb815077d37971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 360
+  fruitMask:
+    serializedVersion: 2
+    m_Bits: 256
+  treeMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleFruits: []
+  closestFruit: {x: 0, y: 0, z: 0}
 --- !u!114 &-4512125731815428455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,22 +79,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   rotSpeed: 100
-  viewRadius: 9.35
-  viewAngle: 45
-  fruitMask:
-    serializedVersion: 2
-    m_Bits: 256
-  treeMask:
-    serializedVersion: 2
-    m_Bits: 512
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  terrainMask:
-    serializedVersion: 2
-    m_Bits: 4096
-  visibleFruits: []
-  visibleWater: []
+  isWandering: 0
+  isRotatingLeft: 0
+  isRotatingRight: 0
+  isWalking: 0
 --- !u!114 &8475361614363416834
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Movement))]
+[CustomEditor(typeof(EatFruit))]
 public class FOV : Editor
 {
     void OnSceneGUI(){
-        Movement fow = (Movement) target;
+        EatFruit fow = (EatFruit) target;
         Handles.color = Color.white;
         Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360, fow.viewRadius);
 
@@ -18,13 +18,8 @@ public class FOV : Editor
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
 
         Handles.color = Color.red;
-        foreach(Transform visibleFruit in fow.visibleFruits){
-            Handles.DrawLine(fow.transform.position, visibleFruit.transform.position);
-        }
-
-        Handles.color = Color.blue;
-        foreach(Transform visibleWater in fow.visibleWater){
-            Handles.DrawLine(fow.transform.position, visibleWater.transform.position);
+        if(fow.closestFruit != new Vector3(0, 0, 0)){
+            Handles.DrawLine(fow.transform.position, fow.closestFruit);
         }
     }
 }

@@ -259,7 +259,7 @@ MonoBehaviour:
   monkey: {fileID: 6129723345519537341, guid: c6991ee0f2113624cbea0913e78801d6, type: 3}
   marten: {fileID: 8253914553390301825, guid: a2753dec8f5e402418283422e67fe678, type: 3}
   tree: {fileID: 3081143843603601912, guid: 7899fd93301f3bc4795e65c5d3a919be, type: 3}
-  populations: 010000000000000032000000
+  populations: 640000000000000032000000
   spawnWidth: 246
   spawnHeight: 246
 --- !u!1 &963194225
