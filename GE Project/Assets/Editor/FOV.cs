@@ -21,5 +21,10 @@ public class FOV : Editor
         foreach(Transform visibleFruit in fow.visibleFruits){
             Handles.DrawLine(fow.transform.position, visibleFruit.transform.position);
         }
+
+        Handles.color = Color.blue;
+        foreach(Transform visibleWater in fow.visibleWater){
+            Handles.DrawLine(fow.transform.position, visibleWater.transform.position);
+        }
     }
 }

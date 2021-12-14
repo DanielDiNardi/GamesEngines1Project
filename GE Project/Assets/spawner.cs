@@ -9,7 +9,7 @@ public class spawner : MonoBehaviour
     public GameObject monkey;
     public GameObject marten;
     public GameObject tree;
-    public int[] populations = new int[] {100, 10, 50};
+    public int[] populations = new int[] {1, 0, 50};
     public float spawnWidth = 246f;
     public float spawnHeight = 246f;
 

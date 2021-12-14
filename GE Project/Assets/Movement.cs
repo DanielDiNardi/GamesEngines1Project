@@ -23,10 +23,18 @@ public class Movement : MonoBehaviour
     public LayerMask fruitMask;
     public LayerMask treeMask;
 
+    public LayerMask waterMask;
+    public LayerMask terrainMask;
+
     [HideInInspector]
     public List<Transform> visibleFruits = new List<Transform>();
 
+    [HideInInspector]
+    public List<Transform> visibleWater = new List<Transform>();
+
     Vector3 closestFruit;
+
+    Vector3 closestWater;
 
     IEnumerator Wander(){
         int rotTime = Random.Range(1, 3);
@@ -69,13 +77,16 @@ public class Movement : MonoBehaviour
             StartCoroutine(Wander());
         }
         if(isRotatingRight == true){
-            transform.Rotate(transform.up * Time.deltaTime * rotSpeed);
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, rotSpeed, 0) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().MoveRotation(gameObject.GetComponent<Rigidbody>().rotation * rotation);
         }
         if(isRotatingLeft == true){
-            transform.Rotate(transform.up * Time.deltaTime * -rotSpeed);
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, -rotSpeed, 0) * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().MoveRotation(gameObject.GetComponent<Rigidbody>().rotation * rotation);
         }
         if(isWalking == true){
-            transform.position += transform.forward * Time.deltaTime * moveSpeed;
+            // transform.position += transform.forward * Time.deltaTime * moveSpeed;
+            gameObject.GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * moveSpeed);
             if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), (transform.forward - transform.up).normalized, out hit)){
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), (transform.forward - transform.up).normalized , Color.green);
                 // print(hit.collider.gameObject.tag);
@@ -92,10 +103,10 @@ public class Movement : MonoBehaviour
             else{
                 isWalking = false;
             }
-
         }
         
         FindVisibleFruits();
+        // CheckIfThirsty();
     }
 
     void FindVisibleFruits(){
@@ -123,7 +134,7 @@ public class Movement : MonoBehaviour
                         isRotatingRight = false;
                         isWalking = false;
 
-                        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(closestFruit - transform.position, Vector3.up), (rotSpeed / 4) * Time.deltaTime);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(closestFruit - transform.position, Vector3.up), (rotSpeed / 4) * Time.deltaTime);
                         transform.position = Vector3.MoveTowards(transform.position, closestFruit, moveSpeed * Time.deltaTime);
                     }
                     
@@ -143,11 +154,89 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Fig"){
             stats = gameObject.GetComponent<Stats>();
-            if(stats.hungry == true){
-                stats.currentHunger = stats.hunger;
-                Destroy(collision.gameObject);
-                isWandering = false;
+            if(stats != null){
+                if(stats.hungry == true){
+                    stats.currentHunger = stats.hunger;
+                    Destroy(collision.gameObject);
+                    isWandering = false;
+                }
+            }
+            
+        }
+    }
+
+    void CheckIfThirsty(){
+
+        visibleWater.Clear();
+        Collider[] waterInView = Physics.OverlapSphere(transform.position, viewRadius, waterMask);
+
+        for(int i = 0; i < waterInView.Length; i++){
+            if(closestWater == null){
+                closestWater = waterInView[i].gameObject.transform.position;
+            }
+            else if((transform.position - waterInView[i].gameObject.transform.position).magnitude < (transform.position - closestWater).magnitude){
+                closestWater = waterInView[i].gameObject.transform.position;
+            }
+            Transform water = waterInView[i].transform;
+            Vector3 dirToWater = (water.position - transform.position).normalized;
+
+            if(Vector3.Angle(transform.forward, dirToWater) < viewAngle / 2){
+                float distToWater = Vector3.Distance(transform.position, water.position);
+
+                if(!Physics.Raycast(transform.position, dirToWater, distToWater, terrainMask)){
+                    stats = gameObject.GetComponent<Stats>();
+                    if(stats.thirsty == true){
+                        isWandering = true;
+                        isRotatingLeft = false;
+                        isRotatingRight = false;
+                        isWalking = false;
+
+                        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(closestWater - transform.position, Vector3.up), (rotSpeed / 4) * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, closestWater, moveSpeed * Time.deltaTime);
+                    }
+                    
+                    visibleFruits.Add(water);
+                }
             }
         }
+
+        // stats = gameObject.GetComponent<Stats>();
+
+        // if(stats != null){
+        //     if(stats.thirsty == true){
+        //         if(waterPosition == new Vector3(0, 0, 0)){
+        //             // isWandering = false;
+        //         }
+        //         else{
+        //             isWandering = true;
+        //             isRotatingLeft = false;
+        //             isRotatingRight = false;
+        //             isWalking = false;
+
+        //             if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), (transform.forward - transform.up).normalized, out hit)){
+        //                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), (transform.forward - transform.up).normalized , Color.green);
+        //                 // print(hit.collider.gameObject.tag);
+        //                 if(hit.collider.gameObject.tag == "Water"){
+        //                     // transform.position = transform.position;
+        //                     // stats = gameObject.GetComponent<Stats>();
+        //                     // if(stats != null){
+        //                         if(stats.thirsty == true){
+        //                             stats.currentThirst = stats.thirst;
+        //                         }
+        //                         // else{
+        //                         //     waterPosition = transform.position;
+        //                         // }
+        //                     // }
+        //                     isWalking = false;
+        //                 }
+        //                 else{
+        //                     Debug.Log(new Vector3(waterPosition.x, 0, waterPosition.z) - transform.position);
+        //                     transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(waterPosition.x, 0, waterPosition.z) - transform.position, Vector3.up), (rotSpeed / 4) * Time.deltaTime);
+        //                     // transform.position = Vector3.MoveTowards(transform.position, waterPosition, moveSpeed * Time.deltaTime);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
 }

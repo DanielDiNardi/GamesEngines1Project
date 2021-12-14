@@ -34,8 +34,8 @@ public class Stats : MonoBehaviour
         reproductionNeedPercent = (currentReproductionNeed / reproductionNeed) * 100f;
 
         if(thirstPercent < hungerPercent && thirstPercent < reproductionNeedPercent){
-            thirsty = true;
-            hungry = false;
+            thirsty = false;
+            hungry = true;
             cuddly = false;
         }
         else if(hungerPercent < thirstPercent && hungerPercent < reproductionNeedPercent){
@@ -45,9 +45,26 @@ public class Stats : MonoBehaviour
         }
         else if(reproductionNeedPercent < thirstPercent && reproductionNeedPercent < hungerPercent){
             thirsty = false;
-            hungry = false;
-            cuddly = true;
+            hungry = true;
+            cuddly = false;
         }
+        else if(thirstPercent == hungerPercent || thirstPercent == reproductionNeedPercent){
+            currentThirst--;
+        }
+        else if(thirstPercent == hungerPercent || thirstPercent == reproductionNeedPercent){
+            currentHunger--;
+        }
+        else if(thirstPercent == hungerPercent || thirstPercent == reproductionNeedPercent){
+            currentReproductionNeed--;
+        }
+        // else if(thirstPercent <= 0){
+        //     Destroy(gameObject);
+        //     Debug.Log("Death by thirst");
+        // }
+        // else if(hungerPercent <= 0){
+        //     Destroy(gameObject);
+        //     Debug.Log("Death by hunger");
+        // }
         else{
             thirsty = false;
             hungry = false;
