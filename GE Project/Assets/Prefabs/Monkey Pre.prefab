@@ -65,6 +65,7 @@ MonoBehaviour:
     m_Bits: 512
   visibleFruits: []
   closestFruit: {x: 0, y: 0, z: 0}
+  full: 0
 --- !u!114 &-4512125731815428455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +84,28 @@ MonoBehaviour:
   isRotatingLeft: 0
   isRotatingRight: 0
   isWalking: 0
+--- !u!114 &526288811505782024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129723345519537341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ea1237b3aef2a46a274a9a225f7bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 360
+  mateMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  treeMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleMates: []
+  closestMate: {x: 0, y: 0, z: 0}
 --- !u!114 &8475361614363416834
 MonoBehaviour:
   m_ObjectHideFlags: 0

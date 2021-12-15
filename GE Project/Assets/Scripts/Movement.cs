@@ -91,6 +91,11 @@ public class Movement : MonoBehaviour
                 eat.FindVisibleFruits();
             }
         }
+
+        Cuddle cuddle = gameObject.GetComponent<Cuddle>();
+        if(cuddle != null){
+            cuddle.FindVisibleMates();
+        }
         // CheckIfThirsty();
     }
 }

@@ -24,6 +24,8 @@ public class Stats : MonoBehaviour
 
     EatFruit eatFruit;
 
+    Cuddle cuddle;
+
     System.Collections.IEnumerator NeedReduction()
     {
         yield return new WaitForSeconds(5);
@@ -38,21 +40,24 @@ public class Stats : MonoBehaviour
         if(thirstPercent < hungerPercent && thirstPercent < reproductionNeedPercent){
             thirsty = true;
             hungry = false;
-            // cuddly = false;
+            cuddly = false;
         }
         else if(hungerPercent < thirstPercent && hungerPercent < reproductionNeedPercent){
             thirsty = false;
             hungry = true;
-            // cuddly = false;
+            cuddly = false;
 
             eatFruit = gameObject.GetComponent<EatFruit>();
             eatFruit.full = false;
         }
-        // else if(reproductionNeedPercent < thirstPercent && reproductionNeedPercent < hungerPercent){
-        //     thirsty = false;
-        //     hungry = false;
-        //     cuddly = false;
-        // }
+        else if(reproductionNeedPercent < thirstPercent && reproductionNeedPercent < hungerPercent){
+            thirsty = false;
+            hungry = false;
+            cuddly = true;
+
+            cuddle = gameObject.GetComponent<Cuddle>();
+            cuddle.mated = false;
+        }
         
         if(thirstPercent == hungerPercent || thirstPercent == reproductionNeedPercent){
             currentThirst--;
@@ -76,7 +81,7 @@ public class Stats : MonoBehaviour
 
         currentThirst = thirst;
         currentHunger = hunger;
-        currentReproductionNeed = reproductionNeed;
+        currentReproductionNeed = reproductionNeed * 0.1f;
     }
 
     void Update(){
