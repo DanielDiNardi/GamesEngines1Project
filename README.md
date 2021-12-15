@@ -30,18 +30,19 @@ This project is a simulation on a South East Asian (SEA) ecosystem. The simulati
 
 ## How it works
 
-| Class / Assets  |   |
+| Class / Assets  | Source  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| Cuddle.cs  | Modfied from [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
+| DecayFruits.cs  | Self written  |
+| DespawnOnContact.cs  | Self written  |
+| DropFruit.cs  | Self written  |
+| EatFruit.cs  | Modified from [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
+| Flee.cs  | Modified from [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
+| Hunt.cs  | Modified from [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
+| Movement.cs  | Modified from [reference](https://www.youtube.com/watch?v=aEPSuGlcTUQ&t=1146s)  |
+| Perlin.cs  | From [reference](https://www.youtube.com/watch?v=vFvwyu_ZKfU)  |
+| Spawner.cs  | Self written  |
+| Stats.cs  | Self written  |
+| EatFruitFOV.cs  | From [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
+| HuntFOV.cs  | From [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
+| MatingFOV.cs  | Modified from [reference](https://www.youtube.com/watch?v=rQG9aUWarwE)  |
