@@ -94,5 +94,17 @@ public class Cuddle : MonoBehaviour
                 StartCoroutine(MakeBaby(collision));
             }
         }
+        else if(collision.gameObject.tag == "Marten" && collision.gameObject.GetComponent<Stats>().male != gameObject.GetComponent<Stats>().male  && collision.gameObject.GetComponent<Stats>().cuddly == true && gameObject.GetComponent<Stats>().cuddly == true){
+            stats = gameObject.GetComponent<Stats>();
+            stats.currentReproductionNeed = stats.reproductionNeed;
+            Movement movement = gameObject.GetComponent<Movement>();
+            movement.isWandering = false;
+            mated = true;
+
+            if(doneBreeding == false){
+                doneBreeding = true;
+                StartCoroutine(MakeBaby(collision));
+            }
+        }
     }
 }

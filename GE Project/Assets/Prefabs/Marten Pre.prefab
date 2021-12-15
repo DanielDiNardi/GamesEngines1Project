@@ -30,6 +30,44 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 060d48bf1bdda7e4b9bd25d94fc28a46, type: 3}
+--- !u!65 &6528000458848375433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253914553390301825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0.96}
+--- !u!114 &-6231755034409665148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253914553390301825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ea1237b3aef2a46a274a9a225f7bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 360
+  mateMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  treeMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleMates: []
+  closestMate: {x: 0, y: 0, z: 0}
+  mated: 0
+  baby: {fileID: 8253914553390301825}
+  doneBreeding: 0
 --- !u!114 &-5615665226421651424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,8 +80,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e183786663061244b5c3424d38d2b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 0
   rotSpeed: 100
+  isWandering: 0
+  isRotatingLeft: 0
+  isRotatingRight: 0
+  isWalking: 0
+--- !u!114 &2148568221574135539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253914553390301825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf8909eefe90b94382747f7e16ecad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thirst: 0
+  hunger: 0
+  reproductionNeed: 0
+  thirstPercent: 0
+  hungerPercent: 0
+  reproductionNeedPercent: 0
+  thirsty: 0
+  hungry: 0
+  cuddly: 0
+  currentThirst: 0
+  currentHunger: 0
+  currentReproductionNeed: 0
+  male: 0
 --- !u!1001 &9100264529271242704
 PrefabInstance:
   m_ObjectHideFlags: 0
