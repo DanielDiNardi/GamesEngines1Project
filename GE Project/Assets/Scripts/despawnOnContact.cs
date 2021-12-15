@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class despawnOnContact : MonoBehaviour
+public class DespawnOnContact : MonoBehaviour
 {
+    // When a creature touches the water, it drowns.
     private void OnCollisionEnter(Collision col){
         Destroy(col.gameObject);
     }

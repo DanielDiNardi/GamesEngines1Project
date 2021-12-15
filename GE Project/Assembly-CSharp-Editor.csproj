@@ -36,7 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\FOV.cs" />
+     <Compile Include="Assets\Editor\EatFruitFOV.cs" />
      <Compile Include="Assets\Editor\HuntFOV.cs" />
      <Compile Include="Assets\Editor\MatingFOV.cs" />
     <Reference Include="UnityEngine">

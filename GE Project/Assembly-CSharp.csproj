@@ -37,16 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Cuddle.cs" />
+     <Compile Include="Assets\Scripts\DecayFruit.cs" />
+     <Compile Include="Assets\Scripts\DespawnOnContact.cs" />
+     <Compile Include="Assets\Scripts\DropFruit.cs" />
      <Compile Include="Assets\Scripts\EatFruit.cs" />
      <Compile Include="Assets\Scripts\Flee.cs" />
      <Compile Include="Assets\Scripts\Hunt.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\Perlin.cs" />
+     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
-     <Compile Include="Assets\Scripts\decay.cs" />
-     <Compile Include="Assets\Scripts\despawnOnContact.cs" />
-     <Compile Include="Assets\Scripts\dropFruit.cs" />
-     <Compile Include="Assets\Scripts\perlin.cs" />
-     <Compile Include="Assets\Scripts\spawner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Users/dandi/Documents/GE1/2019.4.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

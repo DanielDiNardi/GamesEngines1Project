@@ -24,6 +24,12 @@ public class Stats : MonoBehaviour
 
     bool reduceStats = true;
 
+    public int age = 0;
+
+    bool birthday = false;
+
+    public int deathAge;
+
     EatFruit eatFruit;
 
     Hunt hunt;
@@ -76,7 +82,23 @@ public class Stats : MonoBehaviour
             currentHunger--;
         }
 
+        if(currentThirst <= 0 || currentHunger <= 0){
+            Destroy(gameObject);
+        }
+
         reduceStats = true;
+    }
+
+    IEnumerator Aging(){
+        yield return new WaitForSeconds(5);
+        age++;
+
+        if(age >= deathAge){
+            Destroy(gameObject);
+        }
+
+        birthday = false;
+
     }
 
     void CallCoroutine()
@@ -84,10 +106,16 @@ public class Stats : MonoBehaviour
         StartCoroutine(NeedReduction());
     }
 
+    void CallAgingCoroutine(){
+        StartCoroutine(Aging());
+    }
+
     void Start(){
         thirst = Random.Range(10, 30);
         hunger = Random.Range(10, 50);
         reproductionNeed = Random.Range(10, 100);
+
+        deathAge = Random.Range(10, 30);
 
         male = Random.Range(0, 2) == 0;
 
@@ -100,6 +128,11 @@ public class Stats : MonoBehaviour
         if(reduceStats){
             reduceStats = false;   
             CallCoroutine();
+        }
+
+        if(birthday == false){
+            birthday = true;   
+            CallAgingCoroutine();
         }
     }
 }

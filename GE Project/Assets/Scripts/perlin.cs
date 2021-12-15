@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class perlin : MonoBehaviour
+public class Perlin : MonoBehaviour
 {
     public int depth = 10;
 
