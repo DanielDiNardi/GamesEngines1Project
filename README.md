@@ -80,9 +80,13 @@ I am proud of the whole project, especially the object interaction scripts such 
 ![Terrain](https://user-images.githubusercontent.com/55494739/144599147-e98266fb-5bdc-47a6-a6ee-a3f17ceb7e32.png)
 
 ### Marten
+![Marten](/Images/Marten.png)
 
 ### Monkey
+![Monkey](/Images/Monke.png)
 
 ### Fig Tree
+![FigTree](/Images/FigTree.png)
 
 ### Fig
+![Fig](/Images/Fig.png)
