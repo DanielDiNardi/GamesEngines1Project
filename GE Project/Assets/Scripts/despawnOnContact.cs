@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class despawnOnContact : MonoBehaviour
 {
-    // private void OnCollisionEnter(Collision col){
-    //     Destroy(col.gameObject);
-    //     Debug.Log("Death by drowning");
-    // }
+    private void OnCollisionEnter(Collision col){
+        Destroy(col.gameObject);
+    }
 }

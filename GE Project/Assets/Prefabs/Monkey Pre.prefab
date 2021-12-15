@@ -108,6 +108,29 @@ MonoBehaviour:
   closestMate: {x: 0, y: 0, z: 0}
   mated: 0
   baby: {fileID: 6129723345519537341}
+  doneBreeding: 0
+--- !u!114 &850390923953524215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129723345519537341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca142da6893c5742bd96dcc50066b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 360
+  martenMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  treeMask:
+    serializedVersion: 2
+    m_Bits: 4608
+  visibleMartens: []
+  closestMarten: {x: 0, y: 0, z: 0}
 --- !u!114 &8475361614363416834
 MonoBehaviour:
   m_ObjectHideFlags: 0

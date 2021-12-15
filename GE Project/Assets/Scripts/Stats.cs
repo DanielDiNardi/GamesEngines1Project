@@ -59,8 +59,6 @@ public class Stats : MonoBehaviour
                 hunt = gameObject.GetComponent<Hunt>();
                 hunt.full = false;
             }
-
-            
         }
         else if(reproductionNeedPercent < thirstPercent && reproductionNeedPercent < hungerPercent){
             thirsty = false;
@@ -94,7 +92,7 @@ public class Stats : MonoBehaviour
         male = Random.Range(0, 2) == 0;
 
         currentThirst = thirst;
-        currentHunger = hunger * 0.1f;
+        currentHunger = hunger;
         currentReproductionNeed = reproductionNeed;
     }
 

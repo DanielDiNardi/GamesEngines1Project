@@ -259,7 +259,7 @@ MonoBehaviour:
   monkey: {fileID: 6129723345519537341, guid: c6991ee0f2113624cbea0913e78801d6, type: 3}
   marten: {fileID: 8253914553390301825, guid: a2753dec8f5e402418283422e67fe678, type: 3}
   tree: {fileID: 3081143843603601912, guid: 7899fd93301f3bc4795e65c5d3a919be, type: 3}
-  populations: 010000000100000032000000
+  populations: 640000003200000032000000
   spawnWidth: 246
   spawnHeight: 246
 --- !u!1 &963194225
@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 2007425223}
   - component: {fileID: 2007425222}
   - component: {fileID: 2007425226}
+  - component: {fileID: 2007425227}
   m_Layer: 4
   m_Name: Water
   m_TagString: Water
@@ -536,6 +537,18 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2007425226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007425221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cebba956e163a45ace08ce99a52620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2007425227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

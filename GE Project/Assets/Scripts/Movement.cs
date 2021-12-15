@@ -90,6 +90,11 @@ public class Movement : MonoBehaviour
             if(eat != null){
                 eat.FindVisibleFruits();
             }
+
+            Flee flee = gameObject.GetComponent<Flee>();
+            if(flee != null){
+                flee.FindVisibleMartens();
+            }
         }
         else if(gameObject.tag == "Marten"){
             Hunt eat = gameObject.GetComponent<Hunt>();
