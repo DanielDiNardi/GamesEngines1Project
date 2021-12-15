@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\FOV.cs" />
+     <Compile Include="Assets\Editor\HuntFOV.cs" />
      <Compile Include="Assets\Editor\MatingFOV.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Users/dandi/Documents/GE1/2019.4.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

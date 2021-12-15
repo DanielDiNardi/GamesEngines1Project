@@ -38,6 +38,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Cuddle.cs" />
      <Compile Include="Assets\Scripts\EatFruit.cs" />
+     <Compile Include="Assets\Scripts\Flee.cs" />
+     <Compile Include="Assets\Scripts\Hunt.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\decay.cs" />

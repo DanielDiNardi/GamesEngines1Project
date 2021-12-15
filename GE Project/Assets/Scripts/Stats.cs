@@ -26,6 +26,8 @@ public class Stats : MonoBehaviour
 
     EatFruit eatFruit;
 
+    Hunt hunt;
+
     Cuddle cuddle;
 
     System.Collections.IEnumerator NeedReduction()
@@ -49,8 +51,16 @@ public class Stats : MonoBehaviour
             hungry = true;
             cuddly = false;
 
-            eatFruit = gameObject.GetComponent<EatFruit>();
-            eatFruit.full = false;
+            if(gameObject.tag == "Monkey"){
+                eatFruit = gameObject.GetComponent<EatFruit>();
+                eatFruit.full = false;
+            }
+            else if(gameObject.tag == "Marten"){
+                hunt = gameObject.GetComponent<Hunt>();
+                hunt.full = false;
+            }
+
+            
         }
         else if(reproductionNeedPercent < thirstPercent && reproductionNeedPercent < hungerPercent){
             thirsty = false;
@@ -84,8 +94,8 @@ public class Stats : MonoBehaviour
         male = Random.Range(0, 2) == 0;
 
         currentThirst = thirst;
-        currentHunger = hunger;
-        currentReproductionNeed = reproductionNeed * 0.1f;
+        currentHunger = hunger * 0.1f;
+        currentReproductionNeed = reproductionNeed;
     }
 
     void Update(){

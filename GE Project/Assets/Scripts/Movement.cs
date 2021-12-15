@@ -91,6 +91,12 @@ public class Movement : MonoBehaviour
                 eat.FindVisibleFruits();
             }
         }
+        else if(gameObject.tag == "Marten"){
+            Hunt eat = gameObject.GetComponent<Hunt>();
+            if(eat != null){
+                eat.FindVisibleMonkeys();
+            }
+        }
 
         Cuddle cuddle = gameObject.GetComponent<Cuddle>();
         if(cuddle != null){
