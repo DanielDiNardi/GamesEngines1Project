@@ -106,6 +106,8 @@ MonoBehaviour:
     m_Bits: 512
   visibleMates: []
   closestMate: {x: 0, y: 0, z: 0}
+  mated: 0
+  baby: {fileID: 6129723345519537341}
 --- !u!114 &8475361614363416834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +132,7 @@ MonoBehaviour:
   currentThirst: 0
   currentHunger: 0
   currentReproductionNeed: 0
+  male: 0
 --- !u!1001 &6471759758164578796
 PrefabInstance:
   m_ObjectHideFlags: 0

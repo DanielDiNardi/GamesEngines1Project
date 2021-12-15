@@ -20,6 +20,19 @@ public class Cuddle : MonoBehaviour
 
     public bool mated = false;
 
+    public GameObject baby;
+
+    public bool doneBreeding = false;
+
+    IEnumerator MakeBaby(Collision collision){
+        yield return new WaitForSeconds(6);
+        if(gameObject.GetComponent<Stats>().male == false){
+            GameObject newBorn = Instantiate(baby, (collision.gameObject.transform.position + gameObject.transform.position) / 2, transform.rotation);
+            newBorn.GetComponent<Movement>().isWandering = false;
+        }
+        doneBreeding = false;
+    }
+
     public void FindVisibleMates(){
         visibleMates.Clear();
         Collider[] matesInView = Physics.OverlapSphere(gameObject.transform.position, viewRadius, mateMask);
@@ -28,7 +41,7 @@ public class Cuddle : MonoBehaviour
 
         if(matesInView.Length > 2){
             for(int i = 0; i < matesInView.Length; i+=2){
-                if(GameObject.ReferenceEquals(gameObject,matesInView[i].gameObject) == false){
+                if(GameObject.ReferenceEquals(gameObject,matesInView[i].gameObject) == false && matesInView[i].gameObject.GetComponent<Stats>().male != gameObject.GetComponent<Stats>().male){
                     if(closestMate == new Vector3(0, 0, 0)){
                         closestMate = matesInView[i].gameObject.transform.position;
                     }
@@ -65,17 +78,21 @@ public class Cuddle : MonoBehaviour
                     }
                 }
             }
-            
         }
     }
 
     void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.tag == "Monkey"){
+        if(collision.gameObject.tag == "Monkey" && collision.gameObject.GetComponent<Stats>().male != gameObject.GetComponent<Stats>().male  && collision.gameObject.GetComponent<Stats>().cuddly == true && gameObject.GetComponent<Stats>().cuddly == true){
             stats = gameObject.GetComponent<Stats>();
             stats.currentReproductionNeed = stats.reproductionNeed;
             Movement movement = gameObject.GetComponent<Movement>();
             movement.isWandering = false;
             mated = true;
+
+            if(doneBreeding == false){
+                doneBreeding = true;
+                StartCoroutine(MakeBaby(collision));
+            }
         }
     }
 }

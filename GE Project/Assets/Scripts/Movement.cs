@@ -96,6 +96,5 @@ public class Movement : MonoBehaviour
         if(cuddle != null){
             cuddle.FindVisibleMates();
         }
-        // CheckIfThirsty();
     }
 }

@@ -20,6 +20,8 @@ public class Stats : MonoBehaviour
     public float currentHunger = 0;
     public float currentReproductionNeed = 0;
 
+    public bool male;
+
     bool reduceStats = true;
 
     EatFruit eatFruit;
@@ -78,6 +80,8 @@ public class Stats : MonoBehaviour
         thirst = Random.Range(10, 30);
         hunger = Random.Range(10, 50);
         reproductionNeed = Random.Range(10, 100);
+
+        male = Random.Range(0, 2) == 0;
 
         currentThirst = thirst;
         currentHunger = hunger;
